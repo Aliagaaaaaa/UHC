@@ -9,6 +9,7 @@ import java.util.UUID;
 //named this class UPlayer because Player is already a class in the Bukkit API
 public class UPlayer {
 
+    private UPlayerState state;
     private UUID uniqueId;
     private UTeam team;
     private String name;
@@ -16,6 +17,7 @@ public class UPlayer {
     public UPlayer(UUID uniqueId, String name) {
         this.uniqueId = uniqueId;
         this.name = name;
+        this.state = UPlayerState.PLAYER;
     }
 
     public UUID getUniqueId() {
@@ -40,5 +42,13 @@ public class UPlayer {
             player.sendMessage(message);
         }
 
+    }
+
+    public UPlayerState getState() {
+        return state;
+    }
+
+    public void setState(UPlayerState state) {
+        this.state = state;
     }
 }
